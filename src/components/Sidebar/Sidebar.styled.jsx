@@ -10,7 +10,7 @@ export const ContentWrapper = styled.div`
 
 export const Nav = styled.nav`
   position: fixed;
-  width: 60px;
+  width: 70px;
   top: 0;
   height: 100vh;
   z-index: 100;
@@ -32,6 +32,7 @@ export const NavList = styled.ul`
   list-style-type: none;
   color: white;
   padding-top: 70px;
+  padding-left: 38px;
 `;
 
 export const Link = styled(NavLink)`
@@ -68,6 +69,7 @@ export const Link = styled(NavLink)`
 
 export const ListItem = styled.li`
   padding-bottom: 60px;
+  
 
   &:hover a:after {
     opacity: 1;
@@ -78,7 +80,7 @@ export const SvgWrapper = styled.div`
   width: 26px;
   height: 26px;
   position: relative;
-  left: -25px;
+  left: -19px;
   cursor: pointer;
   /* @media screen and(min-width:600px) {
       width: 32px;
