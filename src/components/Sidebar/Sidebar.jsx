@@ -1,29 +1,29 @@
-import { Link, ListItem, Nav, NavList, SvgWrapper } from './Sidebar.styled';
-import { GiHomeGarage } from 'react-icons/gi';
-import { IoCarSportSharp } from 'react-icons/io5';
-import { BsBookmarkHeartFill } from 'react-icons/bs';
+import { Link, ListItem, Nav, NavList } from "./Sidebar.styled";
+import { GiHomeGarage } from "react-icons/gi";
+import { IoCarSportSharp } from "react-icons/io5";
+import { BsBookmarkHeartFill } from "react-icons/bs";
 
 const Sidebar = () => {
-	return (
+  return (
     <Nav>
       <NavList>
         <ListItem>
-          <SvgWrapper>
+          <Link to="/">
             <GiHomeGarage size="26" />
-          </SvgWrapper>
-          <Link to="/">Home</Link>
+            Home
+          </Link>
         </ListItem>
         <ListItem>
-          <SvgWrapper>
+          <Link to="/catalog">
             <IoCarSportSharp size="26" />
-          </SvgWrapper>
-          <Link to="/catalog">Catalog</Link>
+            Catalog
+          </Link>
         </ListItem>
         <ListItem>
-          <SvgWrapper>
+          <Link to="/favorites">
             <BsBookmarkHeartFill size="26" />
-          </SvgWrapper>
-          <Link to="/favorites">Favorites</Link>
+            Favorites
+          </Link>
         </ListItem>
       </NavList>
     </Nav>

@@ -1,6 +1,9 @@
 import { MainTitle, Text, Wrapper } from "./Home.styled";
 
+
 const Home = () => {
+
+
   return (
     <Wrapper>
       <div>

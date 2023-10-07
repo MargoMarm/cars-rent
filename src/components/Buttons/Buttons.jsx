@@ -1,14 +1,16 @@
-// import PropTypes from 'prop-types';
-// import { ButtonStyled } from './Button.styles';
+import PropTypes from "prop-types";
+import { ButtonStyled } from "./Button.styles";
 
-// const Button = ({padding}) => {
-// 	return (
-// 		<Button type="button" padding={padding}/>
-// 	)
-// }
+const Button = ({ padding, text }) => {
+  return (
+    <ButtonStyled type="button" padding={padding}>
+      {text}
+    </ButtonStyled>
+  );
+};
 
-// Button.PropTypes = {
-// 	padding: PropTypes.string,
-// }
-// export default Button;
-
+Button.propTypes = {
+	padding: PropTypes.string,
+	text: PropTypes.string,
+};
+export default Button;
