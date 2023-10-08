@@ -1,11 +1,11 @@
-import Card from "components/Card/Card";
 import { useEffect, useState } from "react";
 import { selectCars } from "redux/Cars/selectors";
 import { useDispatch, useSelector } from "react-redux";
-import { nanoid } from "@reduxjs/toolkit";
 import { fetchCars } from "redux/Cars/operations";
-import { List, PageWrapper, Button } from "./Catalog.styled";
+import { PageWrapper } from "./Catalog.styled";
 import { cardsToDisplay } from "utils";
+import CardsList from "components/CardsList/CardsList";
+import BtnLoadMore from "components/BtnLoadMore/BtnLoadMore";
 
 const Catalot = () => {
   const dispach = useDispatch();
@@ -21,17 +21,11 @@ const Catalot = () => {
   const handleClick = () => {
     setPage(page + 1);
   };
-  const displayedCars = cardsToDisplay(page, cars);
+  const { displayedCars, isMoreToLoad } = cardsToDisplay(page, cars);
   return (
     <PageWrapper>
-      <main>
-        <List>
-          {displayedCars.map((car) => {
-            return <Card key={nanoid()} data={car} />;
-          })}
-        </List>
-        <Button onClick={handleClick}>Load more</Button>
-      </main>
+      <CardsList data={displayedCars} />
+      {isMoreToLoad ? <BtnLoadMore onClick={handleClick} /> : null}
     </PageWrapper>
   );
 };

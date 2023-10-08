@@ -1,8 +1,31 @@
 import styled from "@emotion/styled";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
+
 import { colors } from "utils";
 
+export const SvgHeartEmpty = styled(FaRegHeart)`
+  width: 18px;
+  height: 18px;
+  fill: rgb(208 208 208);
+`;
+
+export const SvgHeart = styled(FaHeart)`
+  width: 18px;
+  height: 18px;
+  fill: ${colors.btnMain};
+`;
+
+export const BtnAddFav = styled.button`
+  position: absolute;
+  padding: 5px;
+  top: 14px;
+  right: 14px;
+  border: none;
+  background: transparent;
+`;
 export const Item = styled.li`
   width: 274px;
+  position: relative;
 `;
 
 export const Img = styled.img`

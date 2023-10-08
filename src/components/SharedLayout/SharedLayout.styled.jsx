@@ -10,3 +10,4 @@ export const Header = styled.header`
   width: 100%;
   background-color: #202020;
 `;
+

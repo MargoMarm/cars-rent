@@ -8,12 +8,12 @@ const SharedLayout = () => {
   return (
     <>
 		  <Sidebar />
-		  <Header/>
       <ContentWrapper>
         <Suspense fallback={<Loader color={'#0fc1dd'} size={'50'} />}>
           <Outlet />
         </Suspense>
-      </ContentWrapper>
+		  </ContentWrapper>
+		  
     </>
   );
 };

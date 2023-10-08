@@ -5,33 +5,46 @@ import {
   Item,
   List,
   MainInfo,
+  SvgHeart,
   TextWrapper,
+  BtnAddFav,
+  SvgHeartEmpty,
 } from "./Card.styled";
-
 import { extractAddress } from "utils";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFavorite } from "redux/Cars/carsSlice";
+import { selectFavoritesId } from "redux/Cars/selectors";
 
-const Card = ({data}) => {
+const Card = ({ info }) => {
+  const dispatch = useDispatch();
 
-	const address = extractAddress(data.address);
-	
+  const address = extractAddress(info.address);
+
+  const favorites = useSelector(selectFavoritesId);
+
+  const isFavorite = favorites.includes(info.id);
+
   return (
     <Item>
-      <Img src={data?.img} alt={data?.make} />
+      <BtnAddFav onClick={() => dispatch(toggleFavorite(info.id))}>
+        {isFavorite ? <SvgHeart /> : <SvgHeartEmpty />}
+      </BtnAddFav>
+      <Img src={info?.img} alt={info?.make} />
       <TextWrapper>
         <MainInfo>
           <span>
-            {data?.make} <Highlight>{data?.model}</Highlight>, {data?.year}
+            {info?.make} <Highlight>{info?.model}</Highlight>, {info?.year}
           </span>
-          <span>{data?.rentalPrice}</span>
+          <span>{info?.rentalPrice}</span>
         </MainInfo>
         <List>
           <li>{address?.city}</li>
           <li>{address?.country}</li>
-          <li>{data.rentalCompany}</li>
-          <li>{data.type}</li>
-          <li>{data.model}</li>
-          <li>{data.id}</li>
-          <li>{data.functionalities?.[0]}</li>
+          <li>{info.rentalCompany}</li>
+          <li>{info.type}</li>
+          <li>{info.model}</li>
+          <li>{info.id}</li>
+          <li>{info.functionalities?.[0]}</li>
         </List>
       </TextWrapper>
       <Button text={"Learn more"} padding={"12px 98px"} />
