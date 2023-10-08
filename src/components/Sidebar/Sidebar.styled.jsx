@@ -31,19 +31,16 @@ export const Nav = styled.nav`
 export const NavList = styled.ul`
   list-style-type: none;
   color: white;
-  padding-top: 70px;
-  padding-left: 38px;
+  padding-top: 220px;
+  padding-left: 65px;
 `;
 
 export const Link = styled(NavLink)`
   position: relative;
   display: block;
-  top: -25px;
   padding-left: 25px;
   padding-right: 15px;
   transition: all 0.3s ease;
-  margin-left: 25px;
-  margin-right: 10px;
   text-decoration: none;
   color: white;
   font-size: 1.35em;
@@ -73,7 +70,7 @@ export const Link = styled(NavLink)`
 `;
 
 export const ListItem = styled.li`
-  padding-bottom: 60px;
+  padding-bottom: 70px;
 
   & svg {
     transition: fill 350ms ease;

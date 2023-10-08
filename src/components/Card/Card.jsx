@@ -11,7 +11,6 @@ import {
 import { extractAddress } from "utils";
 
 const Card = ({data}) => {
-  console.log(data);
 
 	const address = extractAddress(data.address);
 	
@@ -35,7 +34,7 @@ const Card = ({data}) => {
           <li>{data.functionalities?.[0]}</li>
         </List>
       </TextWrapper>
-      <Button text={"Learn more"} padding={"12px 98px"}/>
+      <Button text={"Learn more"} padding={"12px 98px"} />
     </Item>
   );
 };

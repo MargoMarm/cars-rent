@@ -1,9 +1,10 @@
 import Card from "components/Card/Card";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { selectCars } from "redux/Cars/selectors";
 import { useDispatch, useSelector } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit";
 import { fetchCars } from "redux/Cars/operations";
-import { List, PageWrapper } from "./Catalog.styled";
+import { List, PageWrapper, Button } from "./Catalog.styled";
 
 const Catalot = () => {
   const dispach = useDispatch();
@@ -13,15 +14,26 @@ const Catalot = () => {
   }, [dispach]);
 
   const cars = useSelector(selectCars);
-  console.log(cars);
+	const [page, setPage] = useState(1);
+	
+  const handleClick = () => {
+    setPage(page + 1);
+  };
+	
+
+//   const cardsPerPage = 8;
+//   const endIndex = page * cardsPerPage;
+//   const displayedCars = cars.slice(0, endIndex);
+
   return (
     <PageWrapper>
       <main>
         <List>
-          {cars.map((car) => {
-            return <Card key={car.id} data={car} />;
+          {displayedCars.map((car) => {
+            return <Card key={nanoid()} data={car} />;
           })}
         </List>
+        <Button onClick={handleClick}>Load more</Button>
       </main>
     </PageWrapper>
   );
