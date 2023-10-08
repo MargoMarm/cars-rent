@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 import { fetchCars } from "redux/Cars/operations";
 import { List, PageWrapper, Button } from "./Catalog.styled";
+import { cardsToDisplay } from "utils";
 
 const Catalot = () => {
   const dispach = useDispatch();
@@ -14,17 +15,13 @@ const Catalot = () => {
   }, [dispach]);
 
   const cars = useSelector(selectCars);
-	const [page, setPage] = useState(1);
-	
+
+  const [page, setPage] = useState(1);
+
   const handleClick = () => {
     setPage(page + 1);
   };
-	
-
-//   const cardsPerPage = 8;
-//   const endIndex = page * cardsPerPage;
-//   const displayedCars = cars.slice(0, endIndex);
-
+  const displayedCars = cardsToDisplay(page, cars);
   return (
     <PageWrapper>
       <main>
