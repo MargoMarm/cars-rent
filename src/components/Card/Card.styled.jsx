@@ -17,6 +17,7 @@ export const SvgHeart = styled(FaHeart)`
 
 export const BtnAddFav = styled.button`
   position: absolute;
+  z-index: 1;
   padding: 5px;
   top: 14px;
   right: 14px;
