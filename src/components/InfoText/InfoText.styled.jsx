@@ -31,7 +31,7 @@ export const Link = styled(NavLink)`
   font-weight: 500;
   border-radius: 12px;
   border: 2px solid ${colors.btnMain};
-  padding: 7px 14px;
+  padding: 12px 50px;
   color: ${colors.btnMain};
 
   transition: color 250ms ease, border 250ms ease, scale 250ms ease;

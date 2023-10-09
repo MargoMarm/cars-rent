@@ -27,7 +27,12 @@ export const Item = styled.li`
   width: 274px;
   position: relative;
 `;
-
+export const ImgWrapper = styled.div`
+  overflow: hidden;
+  border-radius: 14px;
+  width: 274px;
+  height: 268px;
+`;
 export const Img = styled.img`
   width: 274px;
   height: 268px;
@@ -35,6 +40,16 @@ export const Img = styled.img`
 
   border-radius: 14px;
   margin-bottom: 14px;
+
+  cursor: pointer;
+
+  margin-left: 10px;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    margin-left: 0px;
+  }
 `;
 
 export const TextWrapper = styled.div`
@@ -44,7 +59,7 @@ export const TextWrapper = styled.div`
 
 export const MainInfo = styled.p`
   color: ${colors.textMain};
-  font-size: 16px;
+  font-size: ${(props) => props.fs}px;
   font-weight: 500;
   line-height: 150%;
 
@@ -60,14 +75,13 @@ export const Highlight = styled.span`
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  height: 40px;
   width: 100%;
 
-  margin-bottom: 28px;
-
+  margin-bottom: ${(props) => props.mb}px;
+  max-height: 39px;
   color: ${colors.textSecondary};
   font-size: 12px;
-  line-height: 150%;
+  line-height: 160%;
 
   & > li {
     position: relative;

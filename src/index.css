@@ -1,5 +1,4 @@
-@import-normalize; /* bring in normalize.css styles */
-
+@import 'modern-normalize/modern-normalize.css';
 body {
   margin: 0;
   font-family: -apple-system, "Manrope", "Segoe UI", "Roboto", "Oxygen",
@@ -31,7 +30,7 @@ a:hover {
   cursor: pointer;
 }
 
-a.active > svg{
+a.active > svg {
   fill: #3470ff;
   scale: 1.2;
 }
@@ -48,4 +47,8 @@ button:hover {
 }
 button:disabled {
   cursor: not-allowed;
+}
+
+.body-scroll-lock {
+  overflow: hidden;
 }
