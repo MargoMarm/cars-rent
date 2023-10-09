@@ -5,6 +5,7 @@ export const PageWrapper = styled.div`
   padding-left: 163px;
   padding-top: 70px;
   padding-bottom: 150px;
+  margin: 0 auto;
 `;
 
 

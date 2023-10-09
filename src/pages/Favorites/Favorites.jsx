@@ -5,6 +5,7 @@ import { cardsToDisplay } from "utils";
 import { PageWrapper } from "../Catalog/Catalog.styled";
 import CardsList from "components/CardsList/CardsList";
 import BtnLoadMore from "components/BtnLoadMore/BtnLoadMore";
+import InfoText from "components/InfoText/InfoText";
 
 const Favorites = () => {
   const [page, setPage] = useState(1);
@@ -20,7 +21,12 @@ const Favorites = () => {
 
   return (
     <PageWrapper>
-      <CardsList data={cardsToShow} />
+      {cardsToShow.length === 0 ? (
+        <InfoText />
+      ) : (
+        <CardsList data={cardsToShow} />
+      )}
+
       {favorites.length > 8 && isMoreToLoad ? (
         <BtnLoadMore onClick={handleClick} />
       ) : null}
