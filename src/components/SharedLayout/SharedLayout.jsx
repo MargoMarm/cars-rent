@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import Loader from '../Loader/Loader';
-import { ContentWrapper, Header } from './SharedLayout.styled';
+import { ContentWrapper } from './SharedLayout.styled';
 import Sidebar from 'components/Sidebar/Sidebar';
 
 const SharedLayout = () => {
