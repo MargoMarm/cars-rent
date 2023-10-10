@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { selectCars } from "redux/Cars/selectors";
+import {  selectVisibleCars } from "redux/Cars/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCars } from "redux/Cars/operations";
 import { PageWrapper } from "./Catalog.styled";
 import { cardsToDisplay } from "utils";
 import CardsList from "components/CardsList/CardsList";
 import BtnLoadMore from "components/BtnLoadMore/BtnLoadMore";
+import Filters from "components/Filters/Filters";
 
 const Catalot = () => {
   const dispach = useDispatch();
@@ -14,7 +15,7 @@ const Catalot = () => {
     dispach(fetchCars());
   }, [dispach]);
 
-  const cars = useSelector(selectCars);
+  const cars = useSelector(selectVisibleCars);
 
   const [page, setPage] = useState(1);
 
@@ -23,7 +24,8 @@ const Catalot = () => {
   };
   const { displayedCars, isMoreToLoad } = cardsToDisplay(page, cars);
   return (
-    <PageWrapper>
+	  <PageWrapper>
+		  <Filters/>
       <CardsList data={displayedCars} />
       {isMoreToLoad ? <BtnLoadMore onClick={handleClick} /> : null}
     </PageWrapper>

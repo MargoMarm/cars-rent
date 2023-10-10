@@ -1,4 +1,3 @@
-import { Notify } from "notiflix";
 
 const cardsToDisplay = (page, cars) => {
   const cardsPerPage = 8;
@@ -6,9 +5,9 @@ const cardsToDisplay = (page, cars) => {
   const displayedCars = cars.slice(0, endIndex);
   const isMoreToLoad = cars.length <= endIndex ? false : true;
 
-  if (!isMoreToLoad && cars.length !== 0) {
-    Notify.info("You have watched all adverts");
-  }
+//   if (!isMoreToLoad && cars.length !== 0 && page!==1) {
+//     Notify.info("You have watched all adverts");
+//   }
   return { displayedCars, isMoreToLoad };
 };
 

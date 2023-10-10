@@ -5,7 +5,7 @@ const initialState = {
   cars: [],
   error: null,
   isLoading: false,
-  favorites: [],
+	favorites: [],
 };
 
 const handlePending = (state) => {

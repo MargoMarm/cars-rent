@@ -25,23 +25,22 @@ const Card = ({ info }) => {
     document.body.classList.toggle("body-scroll-lock");
   };
 
-
   const dispatch = useDispatch();
 
   const address = extractAddress(info.address);
 
   const favorites = useSelector(selectFavoritesId);
 
-	const isFavorite = favorites.includes(info.id);
-	
+  const isFavorite = favorites.includes(info.id);
+
   return (
     <Item>
-      <BtnAddFav onClick={() => dispatch(toggleFavorite(info.id))}>
-        {isFavorite ? <SvgHeart /> : <SvgHeartEmpty />}
-		  </BtnAddFav>
-		  <ImgWrapper>
-      <Img src={info?.img} alt={info?.make} onClick={toggleOpen}/>
-		  </ImgWrapper>
+      <ImgWrapper>
+        <BtnAddFav onClick={() => dispatch(toggleFavorite(info.id))}>
+          {isFavorite ? <SvgHeart /> : <SvgHeartEmpty />}
+        </BtnAddFav>
+        <Img src={info?.img} alt={info?.make} onClick={toggleOpen} />
+      </ImgWrapper>
       <TextWrapper>
         <MainInfo fs={16}>
           <span>

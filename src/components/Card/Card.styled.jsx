@@ -17,7 +17,6 @@ export const SvgHeart = styled(FaHeart)`
 
 export const BtnAddFav = styled.button`
   position: absolute;
-  z-index: 1;
   padding: 5px;
   top: 14px;
   right: 14px;
@@ -26,15 +25,17 @@ export const BtnAddFav = styled.button`
 `;
 export const Item = styled.li`
   width: 274px;
-  position: relative;
+  /* position: relative; */
 `;
 export const ImgWrapper = styled.div`
+  position: relative;
   overflow: hidden;
   border-radius: 14px;
   width: 274px;
   height: 268px;
 `;
 export const Img = styled.img`
+
   width: 274px;
   height: 268px;
   object-fit: cover;
@@ -44,13 +45,13 @@ export const Img = styled.img`
 
   cursor: pointer;
 
+  /* transform: scale(1.1);
   margin-left: 10px;
-  transform: scale(1.1);
   transition: 0.3s ease-in-out;
 
   &:hover {
     margin-left: 0px;
-  }
+  } */
 `;
 
 export const TextWrapper = styled.div`
