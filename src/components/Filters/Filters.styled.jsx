@@ -6,6 +6,9 @@ export const FiltersWrapper = styled.div`
   justify-content: center;
   gap: 18px;
   margin-bottom: 50px;
+
+  position: relative;
+  z-index: 2;
 `;
 
 export const Input = styled.input`

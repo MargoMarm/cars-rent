@@ -22,10 +22,10 @@ export const BtnAddFav = styled.button`
   right: 14px;
   border: none;
   background: transparent;
+  z-index: 1;
 `;
 export const Item = styled.li`
   width: 274px;
-  /* position: relative; */
 `;
 export const ImgWrapper = styled.div`
   position: relative;
@@ -35,7 +35,6 @@ export const ImgWrapper = styled.div`
   height: 268px;
 `;
 export const Img = styled.img`
-
   width: 274px;
   height: 268px;
   object-fit: cover;
@@ -45,13 +44,13 @@ export const Img = styled.img`
 
   cursor: pointer;
 
-  /* transform: scale(1.1);
+  transform: scale(1.1);
   margin-left: 10px;
   transition: 0.3s ease-in-out;
 
   &:hover {
     margin-left: 0px;
-  } */
+  }
 `;
 
 export const TextWrapper = styled.div`
