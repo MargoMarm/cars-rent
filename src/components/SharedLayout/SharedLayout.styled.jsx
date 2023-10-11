@@ -5,9 +5,9 @@ export const ContentWrapper = styled.div`
   margin: 0px auto;
 `;
 
-export const Header = styled.header`
-  height: 80px;
-  width: 100%;
-  background-color: #202020;
+export const LoaderStyled = styled.span`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 `;
 

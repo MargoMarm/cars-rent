@@ -63,7 +63,7 @@ export const MainInfo = styled.p`
   font-size: ${(props) => props.fs}px;
   font-weight: 500;
   line-height: 150%;
-
+  margin-top: 14px;
   margin-bottom: 8px;
   display: flex;
   justify-content: space-between;

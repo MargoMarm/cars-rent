@@ -2,26 +2,32 @@ import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
 import { selectBrands, selectPrice } from "redux/Cars/selectors";
 import { setFilter } from "../../redux/Cars/filterSlice";
-import { FiltersWrapper, Input, Submit } from "./Filters.styled";
+import {
+  FiltersWrapper,
+  Input,
+  Label,
+  Reset,
+  Submit,
+  InputWrapper,
+  Svg,
+} from "./Filters.styled";
 import { stylesForBrand } from "utils";
 import { stylesForPrice } from "utils";
 import { useState } from "react";
 
 const Filters = () => {
-  const dispatch = useDispatch();
-  const [needReset, setNeedReset] = useState(false);
+  const [formData, setFormData] = useState({
+    min: "",
+    max: "",
+  });
 
+  const dispatch = useDispatch();
   const brands = useSelector(selectBrands);
   const price = useSelector(selectPrice);
 
-  const handleChangeBrand = (selectedOption) => {
+  const handleChangeSelect = (selectedOption, type) => {
     const value = selectedOption ? selectedOption.value : "";
-    dispatch(setFilter({ filter: "brand", value }));
-  };
-
-  const handleChangePrice = (selectedOption) => {
-    const value = selectedOption ? selectedOption.value : "";
-    dispatch(setFilter({ filter: "price", value }));
+    dispatch(setFilter({ filter: type, value }));
   };
 
   const handleSubmit = (e) => {
@@ -29,44 +35,83 @@ const Filters = () => {
     const { min, max } = e.target;
     const value = { min: min.value, max: max.value };
     dispatch(setFilter({ filter: "mileageRange", value }));
-    setNeedReset(true);
   };
-  const handleReset = (e) => {
-    e.target.reset();
-    setNeedReset(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
+
+  const handleReset = (type) => {
+    setFormData({
+      ...formData,
+      [type]: "",
+    });
+  };
+	
   return (
     <FiltersWrapper>
-      <Select
-        options={brands}
-        styles={stylesForBrand}
-        isClearable={true}
-        placeholder="Enter the text"
-        onChange={handleChangeBrand}
-      />
-      <Select
-        options={price}
-        styles={stylesForPrice}
-        isClearable={true}
-        placeholder="To $"
-        onChange={handleChangePrice}
-      />
-      <form onSubmit={needReset ? handleReset : handleSubmit}>
-        <Input
-          name="min"
-          pattern="[0-9]*"
-          title="Please enter only numbers"
-          placeholder="From:"
-          left
+      <InputWrapper>
+        <Label htmlFor="brand">Car brand </Label>
+        <Select
+          id="brnad"
+          options={brands}
+          styles={stylesForBrand}
+          isClearable={true}
+          placeholder="Enter the text"
+          onChange={(selectedOption) =>
+            handleChangeSelect(selectedOption, "brand")
+          }
         />
-        <Input
-          name="max"
-          pattern="[0-9]*"
-          title="Please enter only numbers"
-          placeholder="To:"
+      </InputWrapper>
+      <InputWrapper>
+        <Label htmlFor="price">Price/ 1 hour </Label>
+        <Select
+          id="price"
+          options={price}
+          styles={stylesForPrice}
+          isClearable={true}
+          placeholder="To $"
+          onChange={(selectedOption) =>
+            handleChangeSelect(selectedOption, "price")
+          }
         />
+      </InputWrapper>
 
-        <Submit>{needReset ? "Reset" : "Search"}</Submit>
+      <form onSubmit={handleSubmit}>
+        <Label htmlFor="min">Сar mileage / km </Label>
+        <InputWrapper>
+          <Input
+            id="min"
+            name="min"
+            value={formData.min}
+            pattern="[0-9]*"
+            title="Please enter only numbers"
+            placeholder={formData.min !== "" ? "" : "From:"}
+            onChange={handleChange}
+            left
+          />
+          <Reset onClick={() => handleReset("min")}>
+            <Svg size={17} />
+          </Reset>
+        </InputWrapper>
+        <InputWrapper>
+          <Input
+            name="max"
+            value={formData.max}
+            pattern="[0-9]*"
+            title="Please enter only numbers"
+            placeholder="To:"
+            onChange={handleChange}
+          />
+          <Reset onClick={() => handleReset("max")}>
+            <Svg size={17} />
+          </Reset>
+        </InputWrapper>
+        <Submit>Search</Submit>
       </form>
     </FiltersWrapper>
   );

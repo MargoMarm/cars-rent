@@ -1,19 +1,24 @@
-import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
-import Loader from '../Loader/Loader';
-import { ContentWrapper } from './SharedLayout.styled';
-import Sidebar from 'components/Sidebar/Sidebar';
+import { Suspense } from "react";
+import { Outlet } from "react-router-dom";
+import Loader from "../Loader/Loader";
+import { ContentWrapper, LoaderStyled } from "./SharedLayout.styled";
+import Sidebar from "components/Sidebar/Sidebar";
 
 const SharedLayout = () => {
   return (
     <>
-		  <Sidebar />
+      <Sidebar />
       <ContentWrapper>
-        <Suspense fallback={<Loader color={'#0fc1dd'} size={'50'} />}>
+        <Suspense
+          fallback={
+            <LoaderStyled>
+              <Loader />
+            </LoaderStyled>
+          }
+        >
           <Outlet />
         </Suspense>
-		  </ContentWrapper>
-		  
+      </ContentWrapper>
     </>
   );
 };

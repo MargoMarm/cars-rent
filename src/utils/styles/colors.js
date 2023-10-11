@@ -7,6 +7,7 @@ const colors = {
   input: "#F7F7FB",
   while: "#FFF",
   cardBcg: "#F9F9F9",
+  inputSvg: "#cccccc",
 };
 
 export default colors;
