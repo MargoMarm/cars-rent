@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Text = styled.p`
-position: relative;
+  position: relative;
   font-weight: 700;
   font-size: 34px;
   text-align: center;
@@ -18,9 +18,9 @@ position: relative;
 `;
 
 export const Heart = styled(MdHeartBroken)`
-position: absolute;
-top: 0;
-right: -54px;
+  position: absolute;
+  top: 0;
+  right: -54px;
   fill: ${colors.btnMain};
   width: 44px;
   height: 44px;
@@ -33,9 +33,9 @@ export const Link = styled(NavLink)`
   border: 2px solid ${colors.btnMain};
   padding: 12px 50px;
   color: ${colors.btnMain};
-
+  width: 245px;
   transition: color 250ms ease, border 250ms ease, scale 250ms ease;
-
+  text-align: center;
   &:hover,
   &:focus {
     color: ${colors.btnSecondary};
