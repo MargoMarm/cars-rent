@@ -1,12 +1,12 @@
 import { Heart, Link, Text, Wrapper } from "./InfoText.styled";
 
-const InfoText = () => {
+const InfoText = ({ text, btn }) => {
   return (
     <Wrapper>
       <Text>
-        You havn't added any adverts to your favorites... <Heart />
+        {text} <Heart />
       </Text>
-      <Link to={"/catalog"}>Go to catalog</Link>
+     { btn ? <Link to={"/catalog"}>Go to catalog</Link> : null}
     </Wrapper>
   );
 };

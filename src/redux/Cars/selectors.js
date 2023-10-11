@@ -16,7 +16,8 @@ export const selectFavorites = createSelector(
   (cars, ids, filter) => {
     const favCars = cars.filter((car) => ids.includes(car.id));
     const favFiltredCars = filterCars(favCars, filter);
-    return favFiltredCars;
+    const allFavCars = { favFiltredCars, favCars };
+    return allFavCars;
   }
 );
 export const selectVisibleCars = createSelector(
@@ -38,8 +39,8 @@ export const selectBrands = createSelector([selectCars], (cars) => {
 });
 
 export const selectPrice = createSelector([selectCars], (cars) => {
-	const uniquePrice = arrOfUnique(cars, "rentalPrice");
-	
+  const uniquePrice = arrOfUnique(cars, "rentalPrice");
+
   const numericPrices = uniquePrice.map((price) =>
     parseInt(price.replace("$", ""), 10)
   );
