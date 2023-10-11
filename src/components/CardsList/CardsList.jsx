@@ -19,7 +19,10 @@ const CardsList = ({ data }) => {
   return (
     <>
       {cardsToShow.length === 0 ? (
-			  <InfoText text={"There is now cars "} btn={false } />
+        <InfoText
+          text={"There are no cars matching your search..."}
+          btn={false}
+        />
       ) : (
         <>
           <List>
